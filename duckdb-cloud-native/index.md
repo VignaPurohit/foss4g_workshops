@@ -31,8 +31,8 @@ Click any section to jump directly to it.
 2. [Installation & Setup](#installation-setup)
 3. [DuckDB CLI Warm-up (In-Memory)](#duckdb-cli-warmup)
 4. [Create a DuckDB Database](#create-duckdb-database)
-7. [Visualization with DBeaver](#visualization-dbeaver)
-8. [Exporting Data & Cloud-Native Workflows](#export-cloud-native)
+5. [Visualization with DBeaver](#visualization-dbeaver)
+6. [Cloud-Native Workflows](#export-cloud-native)
 
 ---
 
@@ -348,3 +348,8 @@ COPY (
   (FORMAT PARQUET);
 ```
 
+## Coud-Native Workflow
+
+We will switch to colab to run and understand the cloud native workflow.
+[Notebook1](https://colab.research.google.com/drive/1gDXZqnYHU2coqVdC5GivdAa7x7cEOibN?usp=sharing)
+[Notebook2](https://colab.research.google.com/drive/1jF_J3xCYeDPL24pmX0y1Z74IMcK3N5ix?usp=sharing)
