@@ -1,0 +1,2 @@
+duckdb-cloud-native/assets/data/*.txt filter=lfs diff=lfs merge=lfs -text
+duckdb-cloud-native/assets/data/*.zip filter=lfs diff=lfs merge=lfs -text
