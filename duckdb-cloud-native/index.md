@@ -131,34 +131,34 @@ Install and load the extensions used in this workshop:
 
 
 ```sql 
-INSTALL spatial
-```;
+INSTALL spatial;
+```
 
 
 ```sql 
-LOAD spatial
-```;
+LOAD spatial;
+```
 
 
 ```sql 
-INSTALL httpfs
-```;
+INSTALL httpfs;
+```
 
 
 ```sql 
-LOAD httpfs
-```;
+LOAD httpfs;
+```
 
 Verify that the Spatial extension is active:
 
 
 ```sql 
-SELECT ST_Point(77.2, 28.6)
-```;
+SELECT ST_Point(77.2, 28.6);
+```
 
 #### Create a small table using inline values:
 
-```sql
+```
 CREATE TABLE demo AS
 SELECT *
 FROM (
@@ -171,13 +171,13 @@ FROM (
 
 Query the table:
 
-```sql 
+```
 SELECT * FROM demo
-```;
+```
 
 Run a simple analytical query:
 
-```sql 
+```
 SELECT
 COUNT(*) AS rows,
 MIN(id) AS min_id,
@@ -188,7 +188,7 @@ FROM demo;
 #### Exit DuckDB CLI
 
 
-```sql
+```
  .quit 
 ```
 
