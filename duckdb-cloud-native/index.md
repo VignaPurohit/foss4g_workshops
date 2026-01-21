@@ -101,6 +101,7 @@ All data is lost when DuckDB exits.
 
 #### Start DuckDB
 
+
 ```sql 
 duckdb
 ```
@@ -109,9 +110,11 @@ DuckDB starts without creating a database file.
 
 #### Basic Interaction
 
+
 ```
 sql SELECT 1;
 ```
+
 
 ```sql
 SELECT current_timestamp;
@@ -119,29 +122,35 @@ SELECT current_timestamp;
 
 #### DuckDB extensions:
 
+
 ```sql
 SELECT * FROM duckdb_extensions();
 ```
 
 Install and load the extensions used in this workshop:
 
+
 ```sql 
 INSTALL spatial
 ```;
+
 
 ```sql 
 LOAD spatial
 ```;
 
+
 ```sql 
 INSTALL httpfs
 ```;
+
 
 ```sql 
 LOAD httpfs
 ```;
 
 Verify that the Spatial extension is active:
+
 
 ```sql 
 SELECT ST_Point(77.2, 28.6)
@@ -158,7 +167,6 @@ FROM (
         (2, 'Bob'),
         (3, 'Charlie')
 ) AS t(id, name);
-
 ```
 
 Query the table:
@@ -179,9 +187,10 @@ FROM demo;
 
 #### Exit DuckDB CLI
 
+
 ```sql
  .quit 
- ```
+```
 
 Restart DuckDB without a database file, and all in-memory data is cleared.
 
@@ -222,7 +231,11 @@ FROM read_csv(
 ``` 
 Let's inspect the table. Here, DuckDB shows us the schema it inferred from the data files.
 
-```sql DESCRIBE geonames_raw; ```
+
+```sql 
+DESCRIBE geonames_raw;
+```
+
 
 Output 
 | Field         |  explanation                                                         |
@@ -322,7 +335,7 @@ COPY (
 TO '/Path To Folder/geonames_asia_cities.parquet'
 (FORMAT PARQUET);
 ```
-Note: You can directly write the parquet file to Doogle Cloud with the right setup. If you have enabled the GCS storage, you can try the following workflow.
+Note: You can directly write the parquet file to Google Cloud with the right setup. If you have enabled the GCS storage, you can try the following workflow.
 
 -- Step 1: Install and load httpfs extension
 
