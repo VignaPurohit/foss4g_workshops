@@ -6,39 +6,40 @@
 
 ---
 
+<a id="workshop-overview"></a>
 ## 👋 Workshop Overview
 
 This workshop introduces **DuckDB** as a modern, analytical, cloud-native database
 for **geospatial data analysis**.
 
-We will start with DuckDB fundamentals and the CLI, understand where DuckDB fits
+We start with DuckDB fundamentals and the CLI, understand where DuckDB fits
 in today’s data ecosystem, and then move into **hands-on geospatial analytics**
-using real-world datasets.  
-The workshop gradually transitions from CLI → GUI → Python,
-mirroring how DuckDB is used in real analytical workflows.
+using real-world datasets.
 
+The workshop gradually transitions from **CLI → GUI → Python**, mirroring
+real analytical workflows.  
 This material is designed to be **practical, reproducible, and infrastructure-light**.
 
 ---
 
+<a id="workshop-index"></a>
 ## 🧭 Workshop Index
 
 Click any section to jump directly to it.
 
-1. [Introduction & DuckDB Architecture](#introduction--duckdb-architecture)
-2. [DuckDB CLI Basics](#duckdb-cli-basics)
-3. [Extensions & Spatial Setup](#extensions--spatial-setup)
-4. [Working with GeoNames Data](#working-with-geonames-data)
-5. [Querying & Analytics](#querying--analytics)
-6. [Visualization with DBeaver](#visualization-with-dbeaver)
-7. [DuckDB with Python & Cloud-Native Workflows](#duckdb-with-python--cloud-native-workflows)
+1. [Introduction & DuckDB Architecture](#introduction-duckdb-architecture)
+2. [Installation & Setup](#installation-setup)
+3. [DuckDB CLI Warm-up (In-Memory)](#duckdb-cli-warmup)
+4. [Create a DuckDB Database](#create-duckdb-database)
+5. [Working with GeoNames Data](#working-with-geonames)
+6. [Querying & Analytics](#querying-analytics)
+7. [Visualization with DBeaver](#visualization-dbeaver)
+8. [Exporting Data & Cloud-Native Workflows](#export-cloud-native)
 
 ---
 
-## Introduction & DuckDB Architecture
-
-
----
+<a id="introduction-duckdb-architecture"></a>
+## 🧩 Introduction & DuckDB Architecture
 
 ### 🎯 What You Will Learn in This Workshop
 
@@ -48,27 +49,25 @@ By the end of this workshop, you will be able to:
 - Use **extensions**, including DuckDB Spatial
 - Load and analyze **real-world geospatial datasets**
 - Query DuckDB from **GUI tools like DBeaver**
-- Integrate DuckDB with **Python for cloud-native analytics**
+- Integrate DuckDB with **Python and cloud storage**
 
 ---
 
-### Slides
+### 📊 Slides
 
 - [View presentation slides (Google Slides)](https://docs.google.com/presentation/d/1ujZkmDi_vmrOjBzIXTVBLhYzNFyJhN9CwEY77IWPZSg/edit?usp=sharing)
 
 ---
 
-
+<a id="installation-setup"></a>
 ## 🛠 Installation & Setup (One-time)
 
-This workshop is designed to be **lightweight**.  
+This workshop is **lightweight**.  
 You only need DuckDB to get started. Other tools are optional but recommended.
 
 ---
 
 ### 🦆 DuckDB CLI (Required)
-
-DuckDB is an embedded analytical database that runs locally as a single binary.
 
 | Platform | Method | Command / Link |
 |--------|--------|----------------|
@@ -78,47 +77,29 @@ DuckDB is an embedded analytical database that runs locally as a single binary.
 | **Windows** | Download | https://duckdb.org/docs/installation |
 | **Docker** (optional) | Container | `docker run -it duckdb/duckdb` |
 
-📘 Official documentation:  
-https://duckdb.org/docs/installation
+📘 Docs: https://duckdb.org/docs/installation
 
 ---
 
 ### 🖥 DBeaver (Recommended – GUI)
 
-DBeaver is a free database GUI used in this workshop to **browse tables and run queries visually**.
+DBeaver is used to **browse tables and run queries visually**.
 
-- Download DBeaver Community Edition:  
-  https://dbeaver.io/download/
+Steps:
+1. Install DBeaver Community Edition  
+   https://dbeaver.io/download/
+2. Create a new connection → **DuckDB**
+3. Open the `.duckdb` file created during the workshop
 
-After installation:
-1. Open DBeaver  
-2. Create a new connection  
-3. Select **DuckDB**  
-4. Open the `.duckdb` file created during the workshop  
-
-_No server, username, or password required._
+_No server or credentials required._
 
 ---
 
-### 📓 Google Colab (Required)
-
-For the Python section, you can use **Google Colab**:
-- Runs entirely in the browser
-- No local Python installation required
-
-Google Colab:
-- https://colab.research.google.com/
-
-Ready-to-run Colab notebooks will be linked later in this workshop.
-
-
-Markdown Output
-Your converted Markdown document, Preview of your Markdown content:
+<a id="duckdb-cli-warmup"></a>
 ## 🖥 DuckDB CLI Warm-up (In-Memory Exploration)
 
-In this warm-up, we use DuckDB without creating a database file.
-
-All queries run in memory and disappear when DuckDB exits.
+This warm-up runs DuckDB **without creating a database file**.  
+All data is lost when DuckDB exits.
 
 #### Start DuckDB
 
@@ -204,8 +185,7 @@ Restart DuckDB without a database file, and all in-memory data is cleared.
 We will use the data from [GeoNames](https://www.geonames.org/). It is a geographical 
 database covers all countries and contains over eleven million placenames that are 
 available for download free of charge.
-We will be downloading files of some asian countries like India,China, Japan, Indonesia and Thailand which are - IN.zip, CN.zip, JP.zip, ID.zip and TH.zip. Also, the readme.txt file is required to get the headers. You can download all these required datasets for the workshop using the link below.
-[Download Data](assets/data/data.zip)
+We will be downloading files of some asian countries like India,China, Japan, Indonesia and Thailand which are - IN.zip, CN.zip, JP.zip, ID.zip and TH.zip. Also, the readme.txt file is required to get the headers. 
 
 #### CLI Workflow
 
