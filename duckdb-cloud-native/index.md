@@ -31,8 +31,6 @@ Click any section to jump directly to it.
 2. [Installation & Setup](#installation-setup)
 3. [DuckDB CLI Warm-up (In-Memory)](#duckdb-cli-warmup)
 4. [Create a DuckDB Database](#create-duckdb-database)
-5. [Working with GeoNames Data](#working-with-geonames)
-6. [Querying & Analytics](#querying-analytics)
 7. [Visualization with DBeaver](#visualization-dbeaver)
 8. [Exporting Data & Cloud-Native Workflows](#export-cloud-native)
 
@@ -178,6 +176,7 @@ LIMIT 5;
 
 Restart DuckDB without a database file, and all in-memory data is cleared.
 
+<a id="create-duckdb-database"></a>
 ##🗄 Create a DuckDB Database
 
 #### 📥 Download GeoNames Cities Data
@@ -270,7 +269,8 @@ GROUP BY country_code
 ORDER BY records DESC;
 ```
 
-#### DBeaver Workflow
+<a id="visualization-dbeaver"></a>
+## Visualization with DBeaver
 
 Once we open the table, we see important `feature_class` and `feature_code` columns which makes the GeoNames flexible enough to query the features based on broader categories like populated aread, water, mountains etc using the `feature_class` column and deeper catogories like different levels of admin boundaries, farm village etc using the `feature_code` column.
 
