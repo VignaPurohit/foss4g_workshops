@@ -101,78 +101,87 @@ All data is lost when DuckDB exits.
 
 #### Start DuckDB
 
-```sql duckdb```
+```sql 
+duckdb
+```
 
 DuckDB starts without creating a database file.
 
 #### Basic Interaction
 
-```sql SELECT 1;```
+```
+sql SELECT 1;
+```
 
-```sql SELECT current_timestamp;```
+```sql
+SELECT current_timestamp;
+```
 
 #### DuckDB extensions:
 
-```sql SELECT * FROM duckdb_extensions();```
+```sql
+SELECT * FROM duckdb_extensions();
+```
 
 Install and load the extensions used in this workshop:
 
-```sql INSTALL spatial```;
+```sql 
+INSTALL spatial
+```;
 
-```sql LOAD spatial```;
+```sql 
+LOAD spatial
+```;
 
-```sql INSTALL httpfs```;
+```sql 
+INSTALL httpfs
+```;
 
-```sql LOAD httpfs```;
+```sql 
+LOAD httpfs
+```;
 
 Verify that the Spatial extension is active:
 
-```sql SELECT ST_Point(77.2, 28.6)```;
+```sql 
+SELECT ST_Point(77.2, 28.6)
+```;
 
 #### Create a small table using inline values:
 
-```sql CREATE TABLE demo AS
-SELECT * FROM (VALUES
-(1, 'Alice'),
-(2, 'Bob'),
-(3, 'Charlie')
-t(id, name);
+```sql
+CREATE TABLE demo AS
+SELECT *
+FROM (
+    VALUES
+        (1, 'Alice'),
+        (2, 'Bob'),
+        (3, 'Charlie')
+) AS t(id, name);
+
 ```
 
 Query the table:
 
-```sql SELECT * FROM demo```;
+```sql 
+SELECT * FROM demo
+```;
 
 Run a simple analytical query:
 
-```sql SELECT
+```sql 
+SELECT
 COUNT(*) AS rows,
 MIN(id) AS min_id,
 MAX(id) AS max_id
 FROM demo;
 ```
 
-#### Read a Local Excel File
-
-```sql SELECT *
-FROM read_excel(
-'data/sample.xlsx',
-sheet='Sheet1'
-)
-LIMIT 5;
-````
-
-####Read a Google Sheet (Public Link)
-
-Make the Google Sheet public (Viewer access) and use its URL:
-
-```sql SELECT * FROM 
-(https://docs.google.com/spreadsheets/d/<SHEET_ID>/export?format=csv')
-LIMIT 5;
-```
 #### Exit DuckDB CLI
 
-```sql .quit ```
+```sql
+ .quit 
+ ```
 
 Restart DuckDB without a database file, and all in-memory data is cleared.
 
@@ -190,7 +199,9 @@ We will be downloading files of some asian countries like India,China, Japan, In
 
 Start DuckDB and create a persistent database file.
 
-```sql duckdb geonames_asia.ddb ```
+```sql 
+duckdb geonames_asia.ddb 
+```
 
 Now, we are going to merge the downloaded geonames file in a single step by creating memory table ``geonames_raw``.
 
