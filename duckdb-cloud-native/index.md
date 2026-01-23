@@ -206,13 +206,16 @@ We will be downloading files of some asian countries like India,China, Japan, In
 
 #### CLI Workflow
 
-Start DuckDB and create a persistent database file.
+Start DuckDB and create a persistent database file in your current working directory. 
+If your DuckDB is not installed at the base path, you will have to load it with the path as illustrated below.
+Ex, ```C:/Downloads/DuckDB/duckdb geonames_asia.ddb```
 
 ```sql 
 duckdb geonames_asia.ddb 
 ```
 
 Now, we are going to merge the downloaded geonames file in a single step by creating memory table ``geonames_raw``.
+You will nedd to change the path based on where is it saved.
 
 ```sql
 CREATE TABLE geonames_raw AS
@@ -287,7 +290,7 @@ ALTER TABLE geonames_raw RENAME TO geonames_asia;
 Let's count records per country.
 
 ```sql
-SELECT country_code COUNT(*) AS records
+SELECT country_code, COUNT(*) AS records
 FROM geonames_asia
 GROUP BY country_code
 ORDER BY records DESC;
@@ -339,9 +342,13 @@ Note: You can directly write the parquet file to Google Cloud with the right set
 
 -- Step 1: Install and load httpfs extension
 
+```sql 
 INSTALL httpfs;
+```
 
+```sql 
 LOAD httpfs;
+```
 
 -- Step 2: Create GCS secret with HMAC keys
 
