@@ -384,4 +384,21 @@ COPY (
 
 We will switch to colab to run and understand the cloud native workflow.
 [Notebook1](https://colab.research.google.com/drive/1gDXZqnYHU2coqVdC5GivdAa7x7cEOibN?usp=sharing)
+
+
 [Notebook2](https://colab.research.google.com/drive/1jF_J3xCYeDPL24pmX0y1Z74IMcK3N5ix?usp=sharing)
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="username/foss4g_workshops"
+        data-repo-id="REPO_ID"
+        data-category="General"
+        data-category-id="CATEGORY_ID"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        crossorigin="anonymous"
+        async>
+</script>
